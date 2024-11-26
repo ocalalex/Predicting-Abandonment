@@ -28,6 +28,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pandas requests selenium beautifulsoup4
         pip install prompt_toolkit
+        pip install openpyxl
         # Install Chrome and Chromedriver
         wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
         sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -fy install
