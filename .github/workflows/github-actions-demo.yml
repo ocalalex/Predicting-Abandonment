@@ -39,7 +39,10 @@ jobs:
 
     # Step 4: Run the tool
     - name: Run main.py script
-      run: python main.py
+      env:
+        SSH_KEY: ${{ secrets.SSH_KEY }}  # Provide the SSH key as an environment variable
+      run: |
+        echo -e "yes\nsample1.pdf" | python main.py "rescrape" "$SSH_KEY"
 
     # Step 5: Upload results
     - name: Upload Results
