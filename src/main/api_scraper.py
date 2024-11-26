@@ -135,8 +135,8 @@ def get_projects(low, high, access_token):
         if (high-decrement) < low:
           decrement = high - low
 
-        # Add the 'created:' parameter for <178 stars
-        if high <= 179:
+        # Add the 'created:' parameter for <200 stars
+        if high <= 200:
             decrement = 1
             # Value of 9 goes down to year 2016
             for i in range(9):
