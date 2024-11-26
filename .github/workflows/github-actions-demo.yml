@@ -55,7 +55,7 @@ jobs:
 
     # Step 5: Upload results
     - name: Upload Results
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: tool-output
         path: features/* # Adjust this to match the script's output location
