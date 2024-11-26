@@ -7,6 +7,7 @@ import argparse
 import subprocess
 import os
 import datetime
+import pytz
 import time
 from prompt_toolkit import prompt
 from prompt_toolkit.completion import PathCompleter
@@ -27,7 +28,8 @@ mode = args.mode
 access_token = args.access_token
 
 # Making export file
-current_datetime = datetime.datetime.now()
+eastern_time_zone = pytz.timezone("US/Eastern")
+current_datetime = datetime.datetime.now(eastern_time_zone)
 formatted_datetime = current_datetime.strftime("%Y-%m-%d_H%H-M%M-S%S")
 export_file = "features_" + formatted_datetime + ".xlsx"
 
