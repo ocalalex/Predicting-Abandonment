@@ -20,6 +20,13 @@ jobs:
       with:
         python-version: '3.x' # Adjust to the required version
 
+    - name: Set up SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+
     # Step 3: Install dependencies
     - name: Install Dependencies
       run: |
