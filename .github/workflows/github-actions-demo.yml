@@ -1,0 +1,17 @@
+name: Run Data Script
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Runs every Sunday at midnight
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip # Add other dependencies
+      - name: Run the script
+        run: python3 your_script.py
