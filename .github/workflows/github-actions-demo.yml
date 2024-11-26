@@ -1,17 +1,49 @@
-name: Run Data Script
+name: Run Predicting-Abandonment Tool
+
 on:
   schedule:
-    - cron: '0 0 * * 0' # Runs every Sunday at midnight
+    - cron: '0 0 * * 0' # Weekly at midnight UTC on Sunday
+  workflow_dispatch: # Manual trigger
 
 jobs:
-  run-script:
-    runs-on: ubuntu-latest
+  run-tool:
+    runs-on: ubuntu-latest # GitHub Actions uses Ubuntu runners
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Setup environment
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y python3-pip # Add other dependencies
-      - name: Run the script
-        run: python3 your_script.py
+    # Step 1: Check out the repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x' # Adjust to the required version
+
+    # Step 3: Install dependencies
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y unzip wget
+        python -m pip install --upgrade pip
+        pip install pandas requests selenium beautifulsoup4
+        # Install Chrome and Chromedriver
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo dpkg -i google-chrome-stable_current_amd64.deb || sudo apt-get -fy install
+        CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+')
+        CHROMEDRIVER_VERSION=$(wget -qO- https://googlechromelabs.github.io/chrome-for-testing/ | grep -oP "$CHROME_VERSION" | head -1)
+        wget https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/$CHROMEDRIVER_VERSION/linux64/chromedriver-linux64.zip
+        unzip chromedriver-linux64.zip -d chromedriver
+        sudo mv chromedriver/chromedriver /usr/local/bin/
+        sudo chmod +x /usr/local/bin/chromedriver
+
+    # Step 4: Run the tool
+    - name: Run main.py script
+      run: python main.py
+
+    # Step 5: Upload results
+    - name: Upload Results
+      uses: actions/upload-artifact@v3
+      with:
+        name: tool-output
+        path: path/to/outputs/* # Adjust this to match the script's output location
