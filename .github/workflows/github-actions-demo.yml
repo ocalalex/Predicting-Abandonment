@@ -38,7 +38,7 @@ jobs:
         sudo chmod +x /usr/local/bin/chromedriver
 
     # Step 4: Run the tool
-    - name: Run main.py script
+    - name: Run src/main/main.py script
       env:
         SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
