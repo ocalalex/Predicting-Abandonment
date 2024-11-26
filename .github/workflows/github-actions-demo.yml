@@ -52,17 +52,12 @@ jobs:
         SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
         echo -e "yes\nsrc/main/samples/tiny_sample.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
-
-    - name: Move generated file to outputs folder
-      run: |
-        # Use wildcard (*) to move the generated file to outputs/
-        mv features/* data-collected/  # Replace with the appropriate pattern if needed
         
     - name: Commit and push the generated file to GitHub
       run: |
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@github.com"
-        git add data-collected/*  # Stage the file
+        git add features/*  # Stage the file
         git commit -m "Add generated file to outputs folder"  # Commit
         git push origin main  # Push to the main branch
       env:
