@@ -69,6 +69,10 @@ jobs:
     runs-on: ubuntu-latest # GitHub Actions uses Ubuntu runners
 
     steps:
+
+    - name: Pause for 10 seconds # makes sure the output file names aren't all the same 
+      run: sleep 10
+      
     # Step 1: Check out the repository
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -128,6 +132,9 @@ jobs:
     runs-on: ubuntu-latest # GitHub Actions uses Ubuntu runners
 
     steps:
+
+    - name: Pause for 20 seconds
+      run: sleep 20
     # Step 1: Check out the repository
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -187,6 +194,9 @@ jobs:
     runs-on: ubuntu-latest # GitHub Actions uses Ubuntu runners
 
     steps:
+
+    - name: Pause for 30 seconds
+      run: sleep 30
     # Step 1: Check out the repository
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -246,6 +256,9 @@ jobs:
     runs-on: ubuntu-latest # GitHub Actions uses Ubuntu runners
 
     steps:
+
+    - name: Pause for 40 seconds
+      run: sleep 40
     # Step 1: Check out the repository
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -305,6 +318,8 @@ jobs:
     runs-on: ubuntu-latest # GitHub Actions uses Ubuntu runners
 
     steps:
+    - name: Pause for 50 seconds
+      run: sleep 50
     # Step 1: Check out the repository
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -364,6 +379,8 @@ jobs:
     runs-on: ubuntu-latest # GitHub Actions uses Ubuntu runners
 
     steps:
+    - name: Pause for 60 seconds
+      run: sleep 60
     # Step 1: Check out the repository
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -423,6 +440,8 @@ jobs:
     runs-on: ubuntu-latest # GitHub Actions uses Ubuntu runners
 
     steps:
+    - name: Pause for 70 seconds
+      run: sleep 70
     # Step 1: Check out the repository
     - name: Checkout repository
       uses: actions/checkout@v3
