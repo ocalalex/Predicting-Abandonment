@@ -2,7 +2,7 @@ name: Run Predicting-Abandonment Tool
 
 on:
   schedule:
-    - cron: '0 0 * * 0' # Weekly at midnight UTC on Sunday
+    - cron: '0 5 * * 1' # Weekly at midnight UTC on Sunday
   workflow_dispatch: # Manual trigger
 
 jobs:
