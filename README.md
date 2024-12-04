@@ -7,6 +7,5 @@ The primary objective of this project is to answer the key research question: Wh
 - Create a metric to measure the risk of open-source abandonment
 
 #### Link to our documentation for the data scraping tool: 
-[Link]
-(https://docs.google.com/document/d/1Jjpl1xQaMB6FtYWBYjZK0QVgoFTovrYyPYvRcOOTF3k/edit?usp=sharing)
+[Link](https://docs.google.com/document/d/1Jjpl1xQaMB6FtYWBYjZK0QVgoFTovrYyPYvRcOOTF3k/edit?usp=sharing)
 
