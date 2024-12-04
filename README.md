@@ -8,7 +8,7 @@ The primary objective of this project is to answer the key research question: Wh
 
 #### [Link to our documentation for the data scraping tool](https://docs.google.com/document/d/1Jjpl1xQaMB6FtYWBYjZK0QVgoFTovrYyPYvRcOOTF3k/edit?usp=sharing)
 
-## Data Scraping Automator
+# Data Scraping Automator
 
 
 
