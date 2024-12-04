@@ -6,6 +6,7 @@ The primary objective of this project is to answer the key research question: Wh
 - Build a model to predict the likelihood of an open-source project being abandoned
 - Create a metric to measure the risk of open-source abandonment
 
-#### Link to our documentation for our tool: 
-[https://docs.google.com/document/d/1Dv7X63ECVBv6xMNhMaslrNtiFWdYqqYsxoce6ZStXM0/edit?usp=sharing](https://docs.google.com/document/d/1Jjpl1xQaMB6FtYWBYjZK0QVgoFTovrYyPYvRcOOTF3k/edit?usp=sharing)
+#### Link to our documentation for the data scraping tool: 
+[Link]
+(https://docs.google.com/document/d/1Jjpl1xQaMB6FtYWBYjZK0QVgoFTovrYyPYvRcOOTF3k/edit?usp=sharing)
 
