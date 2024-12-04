@@ -20,7 +20,7 @@ You may notice that every week, over 10 different excel sheets are added to the 
 #### Issues with the Automator
 If an issue occurs with the automator, my assumption is that it would be one of three things: the SSH key has expired, a dependency is outdated, or a job timed out. You can view the error message provided in Git Actions by clicking on the failed workflow and address what the error was. If the problem was a job hitting the 6 hour limit, you can either rerun the job, or if it is a recurring problem, you may need to split the sample into two pieces and add a new job for the next part of the sample.
 
-### File System
+### File Organization
 
 We've already covered the contents of .github/workflows and features.
 Under models, you will find the colab notebooks with various models and tests, and descriptions.
