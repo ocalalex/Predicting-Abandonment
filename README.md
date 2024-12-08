@@ -27,6 +27,8 @@ Under models, you will find the colab notebooks with various models and tests, a
 
 Under src, there are a number of folders. Most of them went unused for me, but I didn't want to delete anything in case I missed something important. If you fork this repository, feel free to clean it up. The only one that you will probably need is src/main. In here, you can find the samples folder that contains the samples that the automator uses. src/main also contains the python scripts that the automator uses: api_modified.py, clone_scraper.py, etc.
 
+The flag_abandon_tool folder has the documentation and the script for a tool that a previous student wrote that I didn't end up using, but could be useful for a future student.
+
 
 
 
