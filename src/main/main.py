@@ -70,16 +70,19 @@ if mode != 'subscrape':
     def bash_scrape():
       command = f"./clone_scraper.sh ./clone_urls.txt {export_bash_csv} {remove}"
       proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+      # Capture stdout and stderr
       stdout, stderr = proc.communicate()
+
+      # Decode and print outputs
       if stdout:
         print("Output:", stdout.decode())
       if stderr:
         print("Error:", stderr.decode())
-      for line in proc.stdout:
-        print(line.decode().rstrip())
 
-      # Wait for subprocess to finish running
+      # Wait for subprocess to finish running (optional if communicate is used)
       proc.wait()
+
 
     # Create a file to store the bash data, will be later deleted in order to avoid duplicate data
     export_bash_csv = "clone_data.csv"
