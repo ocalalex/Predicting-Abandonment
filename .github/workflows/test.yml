@@ -55,7 +55,7 @@ jobs:
       run: |
         git config --global user.name "github-actions"
         git config --global user.email "github-actions@github.com"
-        git pull origin main --rebase
+        git pull origin main
         git add features/*  # Stage the file
         git commit -m "Add generated file to outputs folder"  # Commit
         git push origin main  # Push to the main branch
