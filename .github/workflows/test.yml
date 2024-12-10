@@ -1,8 +1,6 @@
-name: Run Predicting-Abandonment Tool
+name: Test Tool
 
 on:
-  schedule:
-    - cron: '0 5 * * 1' # Weekly at midnight UTC on Sunday
   workflow_dispatch: # Manual trigger
 
 jobs:
