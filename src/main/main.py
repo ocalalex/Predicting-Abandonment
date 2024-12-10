@@ -69,7 +69,7 @@ if mode != 'subscrape':
     # Function that runs bash script scraper using subprocess.run()
     def bash_scrape():
       print("Current working directory:", os.getcwd())
-        print("Directory contents:", os.listdir(os.getcwd()))
+      print("Directory contents:", os.listdir(os.getcwd()))
       command = f"src/main/clone_scraper.sh ./clone_urls.txt {export_bash_csv} {remove}"
       proc = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
