@@ -19,11 +19,16 @@ jobs:
         python-version: '3.10.12' # Adjust to the required version
 
     - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+  run: |
+    mkdir -p ~/.ssh
+    echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    chmod 600 ~/.ssh/id_rsa
+    eval "$(ssh-agent -s)"  # Start the SSH agent
+    ssh-add ~/.ssh/id_rsa  # Add the SSH key to the agent
+    ssh-keyscan github.com >> ~/.ssh/known_hosts  # Add GitHub's SSH host to known hosts
+
+    - name: Test SSH connection
+      run: ssh -T git@github.com || exit 1  # Test the SSH connection and exit on failure
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -51,6 +56,7 @@ jobs:
       run: |
         chmod +x src/main/clone_scraper.sh  # Ensure the script is executable
         echo -e "yes\nsrc/main/samples/tiny_sample.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+
 
         
     - name: Commit and push the generated file to GitHub
