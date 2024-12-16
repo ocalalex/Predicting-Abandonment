@@ -23,6 +23,8 @@ jobs:
         mkdir -p ~/.ssh
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
+        eval "$(ssh-agent -s)"  # Start the SSH agent
+        ssh-add -c ~/.ssh/id_rsa  # Add the SSH key to the agent
         ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
 
     - name: Test SSH connection
