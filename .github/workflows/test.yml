@@ -20,8 +20,8 @@ jobs:
 
     - name: Setup SSH
       uses: webfactory/ssh-agent@v0.7.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Test SSH connection
       run: ssh -T git@github.com || exit 1  # Test the SSH connection and exit on failure
