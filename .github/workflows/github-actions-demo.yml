@@ -20,12 +20,10 @@ jobs:
       with:
         python-version: '3.10.12' # Adjust to the required version
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -48,10 +46,8 @@ jobs:
 
     # Step 4: Run the tool
     - name: Run main.py script
-      env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
-        echo -e "yes\nsrc/main/samples/5%_Sample_Part_1.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/5%_Sample_Part_1.xlsx" | python src/main/automated_main.py "rescrape" ${{ secrets.TOKEN }}
         
     - name: Commit and push the generated file to GitHub
       run: |
@@ -83,12 +79,10 @@ jobs:
       with:
         python-version: '3.10.12' # Adjust to the required version
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -111,10 +105,8 @@ jobs:
 
     # Step 4: Run the tool
     - name: Run main.py script
-      env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
-        echo -e "yes\nsrc/main/samples/5%_Sample_Part_2.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/5%_Sample_Part_2.xlsx" | python src/main/automated_main.py "rescrape" ${{ secrets.TOKEN }}
         
     - name: Commit and push the generated file to GitHub
       run: |
@@ -145,12 +137,10 @@ jobs:
       with:
         python-version: '3.10.12' # Adjust to the required version
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -173,10 +163,8 @@ jobs:
 
     # Step 4: Run the tool
     - name: Run main.py script
-      env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
-        echo -e "yes\nsrc/main/samples/5%_Sample_Part_3.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/5%_Sample_Part_3.xlsx" | python src/main/automated_main.py "rescrape" ${{ secrets.TOKEN }}
         
     - name: Commit and push the generated file to GitHub
       run: |
@@ -207,12 +195,10 @@ jobs:
       with:
         python-version: '3.10.12' # Adjust to the required version
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -235,10 +221,8 @@ jobs:
 
     # Step 4: Run the tool
     - name: Run main.py script
-      env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
-        echo -e "yes\nsrc/main/samples/5%_Sample_Part_4.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/5%_Sample_Part_4.xlsx" | python src/main/automated_main.py "rescrape" ${{ secrets.TOKEN }}
         
     - name: Commit and push the generated file to GitHub
       run: |
@@ -269,12 +253,10 @@ jobs:
       with:
         python-version: '3.10.12' # Adjust to the required version
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -297,10 +279,8 @@ jobs:
 
     # Step 4: Run the tool
     - name: Run main.py script
-      env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
-        echo -e "yes\nsrc/main/samples/5%_Sample_Part_5.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/5%_Sample_Part_5.xlsx" | python src/main/automated_main.py "rescrape" ${{ secrets.TOKEN }}
         
     - name: Commit and push the generated file to GitHub
       run: |
@@ -330,12 +310,10 @@ jobs:
       with:
         python-version: '3.10.12' # Adjust to the required version
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -358,10 +336,8 @@ jobs:
 
     # Step 4: Run the tool
     - name: Run main.py script
-      env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
-        echo -e "yes\nsrc/main/samples/5%_Sample_Part_6.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/5%_Sample_Part_6.xlsx" | python src/main/automated_main.py "rescrape" ${{ secrets.TOKEN }}
         
     - name: Commit and push the generated file to GitHub
       run: |
@@ -391,12 +367,10 @@ jobs:
       with:
         python-version: '3.10.12' # Adjust to the required version
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -419,10 +393,8 @@ jobs:
 
     # Step 4: Run the tool
     - name: Run main.py script
-      env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
-        echo -e "yes\nsrc/main/samples/5%_Sample_Part_7.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/5%_Sample_Part_7.xlsx" | python src/main/automated_main.py "rescrape" ${{ secrets.TOKEN }}
         
     - name: Commit and push the generated file to GitHub
       run: |
@@ -452,12 +424,10 @@ jobs:
       with:
         python-version: '3.10.12' # Adjust to the required version
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -480,10 +450,8 @@ jobs:
 
     # Step 4: Run the tool
     - name: Run main.py script
-      env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
-        echo -e "yes\nsrc/main/samples/5%_Sample_Part_8.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/5%_Sample_Part_8.xlsx" | python src/main/automated_main.py "rescrape" ${{ secrets.TOKEN }}
         
     - name: Commit and push the generated file to GitHub
       run: |
@@ -512,12 +480,10 @@ jobs:
       with:
         python-version: '3.10.12' # Adjust to the required version
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -540,10 +506,8 @@ jobs:
         
     # Step 4: Run the tool
     - name: Run main.py script
-      env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
-        echo -e "yes\nsrc/main/samples/5%_Sample_Part_9.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/5%_Sample_Part_9.xlsx" | python src/main/automated_main.py "rescrape" ${{ secrets.TOKEN }}
         
     - name: Commit and push the generated file to GitHub
       run: |
@@ -572,12 +536,10 @@ jobs:
       with:
         python-version: '3.10.12' # Adjust to the required version
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -600,10 +562,8 @@ jobs:
 
     # Step 4: Run the tool
     - name: Run main.py script
-      env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
-        echo -e "yes\nsrc/main/samples/5%_Sample_Part_10.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/5%_Sample_Part_10.xlsx" | python src/main/automated_main.py "rescrape" ${{ secrets.TOKEN }}
         
     - name: Commit and push the generated file to GitHub
       run: |
@@ -632,12 +592,10 @@ jobs:
       with:
         python-version: '3.10.12' # Adjust to the required version
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -660,10 +618,8 @@ jobs:
 
     # Step 4: Run the tool
     - name: Run main.py script
-      env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
-        echo -e "yes\nsrc/main/samples/5%_Sample_Part_11.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/5%_Sample_Part_11.xlsx" | python src/main/automated_main.py "rescrape" ${{ secrets.TOKEN }}
         
     - name: Commit and push the generated file to GitHub
       run: |
@@ -692,12 +648,10 @@ jobs:
       with:
         python-version: '3.10.12' # Adjust to the required version
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -720,10 +674,8 @@ jobs:
 
     # Step 4: Run the tool
     - name: Run main.py script
-      env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
-        echo -e "yes\nsrc/main/samples/5%_Sample_Part_12.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/5%_Sample_Part_12.xlsx" | python src/main/automated_main.py "rescrape" ${{ secrets.TOKEN }}
         
     - name: Commit and push the generated file to GitHub
       run: |
@@ -753,12 +705,10 @@ jobs:
       with:
         python-version: '3.10.12' # Adjust to the required version
 
-    - name: Set up SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts  # Adds GitHub's SSH host to known hosts
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.SSH_KEY }}
 
     # Step 3: Install dependencies
     - name: Install Dependencies
@@ -781,10 +731,8 @@ jobs:
 
     # Step 4: Run the tool
     - name: Run main.py script
-      env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
       run: |
-        echo -e "yes\nsrc/main/samples/5%_Sample_Part_13.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/5%_Sample_Part_13.xlsx" | python src/main/automated_main.py "rescrape" ${{ secrets.TOKEN }}
         
     - name: Commit and push the generated file to GitHub
       run: |
