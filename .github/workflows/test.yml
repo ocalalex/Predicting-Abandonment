@@ -23,9 +23,6 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_KEY }}
 
-    - name: Test SSH connection
-      run: ssh -T git@github.com || exit 1  # Test the SSH connection and exit on failure
-
     # Step 3: Install dependencies
     - name: Install Dependencies
       run: |
