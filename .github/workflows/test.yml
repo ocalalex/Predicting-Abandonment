@@ -48,10 +48,10 @@ jobs:
     # Step 4: Run the tool
     - name: Run main.py script
       env:
-        Token: ${{ secrets.Token }}  # Provide the SSH key as an environment variable
+        TOKEN: ${{ secrets.TOKEN }}  # Provide the SSH key as an environment variable
       run: |
         chmod +x src/main/clone_scraper.sh  # Ensure the script is executable
-        echo -e "yes\nsrc/main/samples/tiny_sample.xlsx" | python src/main/main.py "rescrape" ${{ secrets.Token }}
+        echo -e "yes\nsrc/main/samples/tiny_sample.xlsx" | python src/main/main.py "rescrape" ${{ secrets.TOKEN }}
 
 
         
