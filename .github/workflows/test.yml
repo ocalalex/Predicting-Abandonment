@@ -21,7 +21,7 @@ jobs:
     - name: Setup SSH
       uses: webfactory/ssh-agent@v0.7.0
       with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-private-key: ${{ secrets.SSH__KEY }}
 
     - name: Test SSH connection
       run: ssh -T git@github.com || exit 1  # Test the SSH connection and exit on failure
@@ -48,10 +48,10 @@ jobs:
     # Step 4: Run the tool
     - name: Run main.py script
       env:
-        SSH_KEY: ${{ secrets.SSH_PRIVATE_KEY }}  # Provide the SSH key as an environment variable
+        Token: ${{ secrets.Token }}  # Provide the SSH key as an environment variable
       run: |
         chmod +x src/main/clone_scraper.sh  # Ensure the script is executable
-        echo -e "yes\nsrc/main/samples/tiny_sample.xlsx" | python src/main/main.py "rescrape" ${{ secrets.SSH_PRIVATE_KEY }}
+        echo -e "yes\nsrc/main/samples/tiny_sample.xlsx" | python src/main/main.py "rescrape" ${{ secrets.Token }}
 
 
         
