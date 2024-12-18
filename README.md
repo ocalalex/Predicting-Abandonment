@@ -21,8 +21,7 @@ There is also an SSH_KEY secret. This is also linked to my account, but won't ex
 ...
 -----END OPENSSH PRIVATE KEY-----
 
-Copy the entire thing, including the BEGIN and END lines. Paste this into the SSH_KEY secret on GitHub.
-**
+Copy the entire thing, including the BEGIN and END lines. Paste this into the SSH_KEY secret on GitHub.**
 
 You may notice that every week, over 10 different excel sheets are added to the features folder from the data scraping automator. The sample being scraped is split into multiple smaller samples due to Git Actions having a 6 hour limit on each job, so each smaller sample is a separate job in a workflow. You could hypothetically have up to 20 jobs running concurrently, but beyond that they would start being queued up. 
 
