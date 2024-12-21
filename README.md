@@ -13,15 +13,15 @@ The primary objective of this project is to answer the key research question: Wh
 
 Data is automatically scraped every Sunday night/Monday morning at midnight using Git Actions. The data goes straight into the features folder, but to explore what's going on, you can check it out in the Actions tab. To edit the workflow, you would want to edit **.github/workflows/github-actions-demo.yml**.
 
-**If you are participating in this research project: You will need to create a new Personal Access Token on your own GitHub account, as the current one is set to expire on March 2nd, 2025. To do this, you can follow the Access Token section of the data scraping tool documentation linked above, under the How To Run The Tool section. Then, when you have the Personal Access Token, you need to go to the settings of this repository, and under Secrets and Variables, select Actions, then edit the Repository Secret called TOKEN.
+**If you are participating in this research project: You will need to create a new Personal Access Token on your own GitHub account, as the current one is set to expire on March 2nd, 2025. To do this, you can follow the Access Token section of the data scraping tool documentation linked above, under the How To Run The Tool section. Then, when you have the Personal Access Token, you need to go to the settings of this repository, and under Secrets and Variables, select Actions, then edit the Repository Secret called TOKEN.**
 
-There is also an SSH_KEY secret. This is also linked to my account, but won't expire. It may be good to replace this with a new SSH Key just so it isn't reliant on my account, but isn't strictly necessary right away. To create a new SSH Key, follow the Setting UP SSH for GitHub section of the data scraping tool documentation. The SSH key should be passwordless so that the automator can use it, so when creating a key, when it prompts for a password, just hit enter. Then, add the public key to your GitHub account, as instructed to in the document. Lastly, you will need to display the private key using cat ~/.ssh/path/to/file/id_ed25519 (by default it is just cat ~/.ssh/id_ed25519). Copy the private key that is displayed, which will have a format like:
+**There is also an SSH_KEY secret. This is also linked to my account, but won't expire. It may be good to replace this with a new SSH Key just so it isn't reliant on my account, but isn't strictly necessary right away. To create a new SSH Key, follow the Setting UP SSH for GitHub section of the data scraping tool documentation. The SSH key should be passwordless so that the automator can use it, so when creating a key, when it prompts for a password, just hit enter. Then, add the public key to your GitHub account, as instructed to in the document. Lastly, you will need to display the private key using cat ~/.ssh/path/to/file/id_ed25519 (by default it is just cat ~/.ssh/id_ed25519). Copy the private key that is displayed, which will have a format like:**
 
------BEGIN OPENSSH PRIVATE KEY-----
+**-----BEGIN OPENSSH PRIVATE KEY-----
 ...
------END OPENSSH PRIVATE KEY-----
+-----END OPENSSH PRIVATE KEY-----**
 
-Copy the entire thing, including the BEGIN and END lines. Paste this into the SSH_KEY secret on GitHub.**
+**Copy the entire thing, including the BEGIN and END lines. Paste this into the SSH_KEY secret on GitHub.**
 
 You may notice that every week, over 10 different excel sheets are added to the features folder from the data scraping automator. The sample being scraped is split into multiple smaller samples due to Git Actions having a 6 hour limit on each job, so each smaller sample is a separate job in a workflow. You could hypothetically have up to 20 jobs running concurrently, but beyond that they would start being queued up. 
 
