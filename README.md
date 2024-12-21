@@ -39,6 +39,9 @@ Note: There are two very similar files with two different purposes: main.py, and
 
 The flag_abandon_tool folder has the documentation and the script for a tool that a previous student wrote that I didn't end up using, but could be useful for a future student.
 
+### Master Data Set
+The github file size limit forced me to split the master data set into three pieces, Master_Data_Part1, 2, and 3. These, together, are all of the repositories that I was able to collect when I scraped all of the repositories within the tool's limits. It was created on September 17th. Before I split the master data set into three pieces to upload, I randomized the order of the repositories using a random number generator in excel, so if you only need a smaller sample of data, you could just use one of these parts without worrying about the randomness of the sample. These master data sets are stored under src/main/samples/master_data_set.
+
 
 
 
